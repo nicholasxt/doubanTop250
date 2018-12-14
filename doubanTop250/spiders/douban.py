@@ -44,5 +44,3 @@ class DoubanSpider(scrapy.Spider):
         if nextLink:
             nextLink = nextLink[0]
             yield scrapy.Request('https://movie.douban.com/top250' + nextLink, callback=self.parse)
-
-        pass

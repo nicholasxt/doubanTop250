@@ -67,9 +67,9 @@ ROBOTSTXT_OBEY = True
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    # 'doubanTop250.pipelines.Doubantop250Pipeline': 300,
-    'doubanTop250.pipelines.JsonPipeline': 301,
+   #  'doubanTop250.pipelines.JsonPipeline': 301,
    # 'doubanTop250.pipelines.CsvPipeline': 302,
-
+    'doubanTop250.pipelines.MongoPipeline': 303,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -93,9 +93,21 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-#Mysql数据库的配置信息
+
+# Mysql数据库的配置信息
 MYSQL_HOST = '127.0.0.1'
 MYSQL_DBNAME = 'doubantop250'         #数据库名字，请修改
 MYSQL_USER = 'root'             #数据库账号，请修改
 MYSQL_PASSWD = '36'         #数据库密码，请修改
 MYSQL_PORT = 3306               #数据库端口，在dbhelper中使用
+
+
+# 保存到mongodb数据库
+# IP
+MONGODB_HOST = '127.0.0.1'
+# 端口号，默认27017
+MONGODB_PORT = 27017
+# 数据库名称
+MONGODB_DBNAME = "douban"
+# 存放数据的表的名称
+MONGODB_TABLE_NAME = 'movie'
